@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+let program = require('commander')
+
+program.version('0.0.1')
+
+program
+  .command('help')
+  .description('Show usage')
+  .action(() => {
+    program.outputHelp()
+  })
+
+program
+  .command('create [dir]')
+  .description('Create new empty blog')
+  .action(require('../lib/cmd_create'))
+
+program
+  .command('preview [dir]')
+  .description('Preview instantly')
+  .action(require('../lib/cmd_preview'))
+
+program
+  .command('build [dir]')
+  .description('Generate static html website')
+  .option('-o, --output <dir>', 'The directory of generated files')
+  .action(require('../lib/cmd_build'))
+
+program.parse(process.argv)
