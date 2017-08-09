@@ -13,5 +13,27 @@
     <div class="post-content">
       {{ post.content }}
     </div>
+    <!-- duoshuo comments block start -->
+    <div class="ds-thread"
+         data-thread-key=""
+         data-title="{{ post.title | escape }}"
+         data-url="">     
+    </div>
+    <!-- duoshuo comments block end -->
+    <!-- duoshuo common js code start (one page need include only once) -->
+    <script>
+      let duoshuoQuery = {
+        short_time: 'node-in-action-blog'
+      };
+      (function create() {
+        let ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol === 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })()
+    </script>
+    <!-- duoshuo common js code end -->
   </body>
 </html>
